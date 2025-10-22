@@ -18,11 +18,26 @@ body {
     z-index: 1030;
     background-color: rgba(0, 0, 0, 0.8) !important;
     transition: background-color 0.5s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
 }
 
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
+}
+
+/* Estilos para los enlaces de navegación */
+.navbar-nav .nav-link {
+    font-family: 'Playfair Display', serif; /* Fuente serifa */
+    font-size: 1.1rem; /* Tamaño de letra ligeramente más grande */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffffff !important; /* Color más brillante al pasar el ratón o si está activo */
+    transform: scale(1.05); /* Efecto de ligero zoom */
 }
 
 /* Parallax Section */
@@ -81,4 +96,9 @@ body {
 .btn-outline-primary:hover {
     background-color: #007bff;
     color: white;
+}
+
+.destination-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
 }
