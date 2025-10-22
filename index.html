@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turismo Anzoátegui - Tu Destino es Aquí</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Bootstrap Icons moved to head to avoid late reflow -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
 
     <!-- Hero Section -->
-    <header id="hero" class="parallax-section" style="background-image: url('assets/images/parallax-1.jpg');">
+    <header id="hero" class="parallax-section lazy-bg" data-bg="assets/images/parallax-1.jpg" style="background-color:#efefef; background-size:cover; background-position:center;">
         <div class="container text-center text-white">
             <h1 class="display-3 fw-bold animated-text">Bienvenido a Anzoátegui</h1>
             <p class="lead">Un estado de sol, playa y gente amable. Tu destino es aquí.</p>
@@ -47,7 +51,7 @@
                 <!-- Municipios Card -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 destination-card">
-                        <img src="assets/images/destination-1.jpg" class="card-img-top" alt="Explorar Municipios">
+                        <img src="assets/images/destination-1.jpg" class="card-img-top" alt="Explorar Municipios" loading="lazy" decoding="async">
                         <div class="card-body text-center">
                             <h5 class="card-title">Nuestros Municipios</h5>
                             <p class="card-text">Desde playas paradisíacas hasta llanos imponentes, conoce los 16 municipios que conforman Anzoátegui.</p>
@@ -58,7 +62,7 @@
                 <!-- Noticias Card -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 destination-card">
-                        <img src="assets/images/news-1.jpg" class="card-img-top" alt="Últimas Noticias">
+                        <img src="assets/images/news-1.jpg" class="card-img-top" alt="Últimas Noticias" loading="lazy" decoding="async">
                         <div class="card-body text-center">
                             <h5 class="card-title">Últimas Noticias</h5>
                             <p class="card-text">Mantente al día con los eventos, festivales y novedades más recientes del turismo en la región.</p>
@@ -69,7 +73,7 @@
                 <!-- Sobre Nosotros/Contacto Card -->
                 <div class="col-lg-4 col-md-12 mb-4">
                     <div class="card h-100 destination-card">
-                        <img src="assets/images/parallax-2.jpg" class="card-img-top" alt="Sobre Nosotros">
+                        <img src="assets/images/parallax-2.jpg" class="card-img-top" alt="Sobre Nosotros" loading="lazy" decoding="async">
                         <div class="card-body text-center">
                             <h5 class="card-title">Sobre Nosotros</h5>
                             <p class="card-text">Somos la Cámara de Turismo de Anzoátegui. Conoce nuestra misión y contáctanos para más información.</p>
@@ -91,7 +95,7 @@
                     <p class="text-muted">Nullam ac justo nec massa viverra condimentum. Vivamus et arcu nisi. Duis consequat, sapien nec ultrices lobortis, magna magna viverra augue, sit amet tincidunt odio sapien eget dui. Nam nec elit nec est ultrices tincidunt.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="assets/images/parallax-1.jpg" alt="Oficina de Turismo" class="img-fluid rounded shadow-lg">
+                    <img src="assets/images/parallax-1.jpg" alt="Oficina de Turismo" class="img-fluid rounded shadow-lg" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -164,11 +168,48 @@
     </section>
 
     <!-- Call to Action Parallax Section -->
-    <section class="parallax-section" style="background-image: url('assets/images/parallax-2.jpg');">
+    <section class="parallax-section lazy-bg" data-bg="assets/images/parallax-2.jpg" style="background-color:#eaeaea; background-size:cover; background-position:center;">
         <div class="container text-center text-white">
             <h2 class="display-4 fw-bold">¿Listo para tu Aventura?</h2>
             <p class="lead my-3">Contacta con nosotros y planifica tu viaje a Anzoátegui hoy mismo.</p>
             <a href="pages/contacto.html" class="btn btn-primary btn-lg mt-3">Contáctanos</a>
+        </div>
+    </section>
+
+    <!-- Afiliados / Sponsors (elementor-widget-wrap elementor-element-populated) -->
+    <section class="elementor-widget-wrap elementor-element-populated py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="section-title">Nuestros Afiliados</h2>
+                <p class="lead text-muted">Empresas y organizaciones que apoyan a la Cámara de Turismo</p>
+            </div>
+
+            <!-- slider wrapper: track contiene los mismos items duplicados por JS para loop seamless -->
+            <div class="sponsors-slider">
+                <div class="sponsors-track">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                        <img src="https://placehold.co/300x80/1abc9c/ffffff?text=Sponsor+1" alt="Sponsor 1" class="img-fluid sponsor-logo" loading="lazy" decoding="async">
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                        <img src="https://placehold.co/300x80/3498db/ffffff?text=Sponsor+2" alt="Sponsor 2" class="img-fluid sponsor-logo" loading="lazy" decoding="async">
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                        <img src="https://placehold.co/300x80/e74c3c/ffffff?text=Sponsor+3" alt="Sponsor 3" class="img-fluid sponsor-logo" loading="lazy" decoding="async">
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                        <img src="https://placehold.co/300x80/f1c40f/000000?text=Sponsor+4" alt="Sponsor 4" class="img-fluid sponsor-logo" loading="lazy" decoding="async">
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                        <img src="https://placehold.co/300x80/9b59b6/ffffff?text=Sponsor+5" alt="Sponsor 5" class="img-fluid sponsor-logo" loading="lazy" decoding="async">
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                        <img src="https://placehold.co/300x80/34495e/ffffff?text=Sponsor+6" alt="Sponsor 6" class="img-fluid sponsor-logo" loading="lazy" decoding="async">
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                        <img src="https://placehold.co/300x80/2ecc71/ffffff?text=Sponsor+7" alt="Sponsor 7" class="img-fluid sponsor-logo" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -205,8 +246,54 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script defer src="assets/js/main.js"></script>
+    <!-- small inline lazy-bg loader to avoid loading big background images until needed -->
+    <script>
+    (function(){
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.lazy-bg').forEach(function(el){
+          var bg = el.getAttribute('data-bg');
+          if (bg) el.style.backgroundImage = "url('" + bg + "')";
+        });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries, obs){
+        entries.forEach(function(e){
+          if (e.isIntersecting){
+            var el = e.target;
+            var bg = el.getAttribute('data-bg');
+            if (bg) el.style.backgroundImage = "url('" + bg + "')";
+            obs.unobserve(el);
+          }
+        });
+      }, {rootMargin: '200px'});
+      document.querySelectorAll('.lazy-bg').forEach(function(el){ io.observe(el); });
+    })();
+    </script>
+    <script>
+        const track = document.querySelector('.sponsors-track');
+        const computeDuration = () => {
+            // ancho del bloque original (antes de duplicar) = scrollWidth / 2
+            const originalWidth = track.scrollWidth / 2 || track.offsetWidth;
+            const speed = 120; // px por segundo (ajusta para ir más lento/rápido)
+            const durationSec = Math.max(8, originalWidth / speed); // mínimo 8s
+            track.style.setProperty('--sponsors-duration', durationSec + 's');
+
+            // NUEVO: usar desplazamiento en píxeles para evitar saltos al final del loop
+            // (translate en keyframes usará esta variable)
+            track.style.setProperty('--sponsors-translate', originalWidth + 'px');
+        };
+
+        // Llama a computeDuration al cargar la página y al redimensionar la ventana
+        window.addEventListener('load', computeDuration);
+        window.addEventListener('resize', computeDuration);
+    </script>
+    <style>
+        /* Animación: ahora usa un desplazamiento en píxeles calculado por JS */
+        @keyframes sponsors-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(calc(-1 * var(--sponsors-translate, 50%))); }
+        }
+    </style>
 </body>
 </html>

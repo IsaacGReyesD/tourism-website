@@ -102,3 +102,208 @@ body {
     height: 250px;
     object-fit: cover;
 }
+
+/* Sponsor logos staggered reveal */
+.sponsor-item {
+  opacity: 0;
+  transform: translateY(14px) scale(.995);
+  transition: opacity .56s cubic-bezier(.2,.8,.2,1), transform .56s cubic-bezier(.2,.8,.2,1);
+  will-change: opacity, transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px; /* gives breathing room around logo box */
+}
+
+/* visual box for each logo to match the "white card" look */
+.sponsor-item img {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
+/* visible state (when revealed) */
+.sponsor-item.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* subtle hover lift when visible (only for non-touch devices) */
+@media (hover: hover) and (pointer: fine) {
+  .sponsor-item.visible:hover {
+    transform: translateY(-6px) scale(1.02);
+    transition: transform .18s ease;
+  }
+}
+
+/* Respect user reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-item,
+  .sponsor-item img {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Make the sponsors row behave like a horizontal strip on very small widths */
+@media (max-width: 576px) {
+  .elementor-widget-wrap.elementor-element-populated .row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 1rem;
+  }
+  .elementor-widget-wrap.elementor-element-populated .row > .col-6 {
+    min-width: 220px; /* show logos in a scroller on narrow screens */
+  }
+}
+
+/* Afiliados - reveal escalonado (aplicar a la columna .col-...) */
+.elementor-widget-wrap.elementor-element-populated .row {
+  align-items: center;
+}
+
+/* la animación se aplica a la columna para que la caja entera aparezca como en la referencia */
+.sponsor-item {
+  opacity: 0;
+  transform: translateY(14px) scale(.995);
+  transition: opacity .56s cubic-bezier(.2,.8,.2,1), transform .56s cubic-bezier(.2,.8,.2,1);
+  will-change: opacity, transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+/* estilo visual tipo tarjeta blanca alrededor del logo */
+.sponsor-item img {
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
+/* estado visible (revelado) */
+.sponsor-item.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* hover sutil solo en dispositivos con puntero */
+@media (hover: hover) and (pointer: fine) {
+  .sponsor-item.visible:hover {
+    transform: translateY(-6px) scale(1.02);
+    transition: transform .18s ease;
+  }
+}
+
+/* respeto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-item,
+  .sponsor-item img {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* scroller horizontal en móviles estrechos (como referencia) */
+@media (max-width: 576px) {
+  .elementor-widget-wrap.elementor-element-populated .row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 1rem;
+  }
+  .elementor-widget-wrap.elementor-element-populated .row > .col-6 {
+    min-width: 220px;
+  }
+}
+
+/* Sponsors infinite carousel */
+.sponsors-slider {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 1rem 0;
+    background: transparent;
+}
+
+.sponsors-track {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* duración por defecto, JS sobrescribe con --sponsors-duration */
+    animation: sponsors-scroll var(--sponsors-duration, 30s) linear infinite;
+    will-change: transform;
+}
+
+/* Evitar que las clases de columna de Bootstrap forcen anchos responsivos dentro del slider */
+.sponsors-track > .col-6,
+.sponsors-track > .col-sm-4,
+.sponsors-track > .col-md-3,
+.sponsors-track > .col-lg-2 {
+    flex: 0 0 auto;
+    width: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tamaño y estilo de los logos */
+.sponsor-logo {
+    max-height: 60px;
+    height: auto;
+    display: block;
+    filter: grayscale(10%);
+    opacity: 0.95;
+    transition: transform .25s ease, filter .25s ease, opacity .25s ease;
+    margin: 0 .25rem;
+}
+
+.sponsor-logo:hover {
+    transform: scale(1.06);
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* Fade masks a los bordes opcional (similar al ejemplo) */
+.sponsors-slider::before,
+.sponsors-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+.sponsors-slider::before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255,255,255,0), #fff);
+}
+.sponsors-slider::after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255,255,255,0), #fff);
+}
+
+/* Animación */
+@keyframes sponsors-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); } /* se mueve la mitad porque duplicamos el contenido por JS */
+}
+
+/* Reglas menores para móviles */
+@media (max-width: 576px) {
+    .sponsor-logo { max-height: 48px; }
+    .sponsors-slider::before,
+    .sponsors-slider::after { display: none; }
+}
