@@ -11,12 +11,13 @@ body {
 }
 
 /* Navbar */
-.navbar {
-    transition: background-color 0.5s ease;
-}
-
-.navbar.scrolled {
+.navbar-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
     background-color: rgba(0, 0, 0, 0.8) !important;
+    transition: background-color 0.5s ease;
 }
 
 .navbar-brand {
