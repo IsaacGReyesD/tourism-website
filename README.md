@@ -12,11 +12,11 @@ A **modern and responsive tourism platform** built purely with front-end technol
 
 This project is built exclusively using core front-end web technologies:
 
-| Technology | Description |
-| :--- | :--- |
-| **HTML5** | Semantic structure and content organization. |
-| **CSS3** | Responsive and modern styling (likely using **Flexbox** and **Grid**). |
-| **JavaScript (JS)** | Interactive logic, event handling, and dynamic features. |
+| Technology | 
+| :--- |
+| **HTML5** | 
+| **CSS3** | 
+| **JavaScript (JS)** | 
 
 ---
 
