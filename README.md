@@ -34,7 +34,7 @@ To get a local copy of this project up and running on your machine, follow these
 
 ```bash
 # Clone the repository
-git clone [https://github.com/IsaacGReyesD/tourism-website](https://github.com/IsaacGReyesD/tourism-website)
+git clone https://github.com/IsaacGReyesD/tourism-website
 
 # Navigate to the project directory
 cd tourism-website
