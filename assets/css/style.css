@@ -10,35 +10,69 @@ body {
     margin-bottom: 3rem;
 }
 
-/* Navbar */
-.navbar-sticky {
-    position: fixed;
+/* Navbar mejorado */
+#mainNav {
+    position: sticky;
     top: 0;
-    width: 100%;
-    z-index: 1030;
-    background-color: rgba(0, 0, 0, 0.8) !important;
-    transition: background-color 0.5s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
+    z-index: 1050;
+    transition: background-color .3s ease, box-shadow .3s ease, backdrop-filter .3s ease, padding .25s ease;
+    background-color: rgba(255,255,255,0.40); /* estado por defecto semi-transparente */
+    backdrop-filter: blur(6px);
+    box-shadow: none;
+    padding: 0.6rem 0;
 }
 
-.navbar-brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+/* Estado al hacer scroll: más contraste */
+#mainNav.scrolled {
+    background-color: rgba(255,255,255,0.95);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    padding: 0.45rem 0;
 }
 
-/* Estilos para los enlaces de navegación */
-.navbar-nav .nav-link {
-    font-family: 'Playfair Display', serif; /* Fuente serifa */
-    font-size: 1.1rem; /* Tamaño de letra ligeramente más grande */
-    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
-    padding: 0.5rem 1rem;
+/* Brand */
+#mainNav .navbar-brand {
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #0d3b66; /* color más vivo */
+    transition: transform .18s ease;
+}
+#mainNav .navbar-brand:hover { transform: translateY(-2px); }
+
+/* Links */
+#mainNav .navbar-nav .nav-link {
+    color: rgba(13,59,102,0.9);
+    font-weight: 500;
+    padding: 0.6rem 0.75rem;
+    transition: color .18s ease, background-color .18s ease, transform .12s ease;
+    border-radius: 6px;
+}
+#mainNav .navbar-nav .nav-link:hover {
+    color: #fff;
+    background: linear-gradient(90deg,#0d3b66,#1b98e0);
+    transform: translateY(-2px);
+}
+#mainNav .navbar-nav .nav-link.active {
+    background: linear-gradient(90deg,#0d3b66,#1b98e0);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(27,152,224,0.18);
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-    color: #ffffff !important; /* Color más brillante al pasar el ratón o si está activo */
-    transform: scale(1.05); /* Efecto de ligero zoom */
+/* Toggler (hamburger) color + nice focus */
+.navbar-toggler {
+    border: none;
+    width: 44px;
+    height: 44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(13,59,102,0.06);
+    transition: background .15s ease, transform .15s ease;
 }
+.navbar-toggler:focus { outline: none; box-shadow: 0 0 0 4px rgba(27,152,224,0.12); }
+.navbar-toggler .navbar-toggler-icon { filter: invert(20%) sepia(20%) saturate(600%) hue-rotate(170deg); }
 
 /* Parallax Section */
 .parallax-section {
@@ -307,3 +341,17 @@ body {
     .sponsors-slider::before,
     .sponsors-slider::after { display: none; }
 }
+
+/* Navbar: añadir clase 'scrolled' cuando se baja un poco para más contraste */
+(function () {
+  const nav = document.getElementById('mainNav');
+  if (!nav) return;
+  const threshold = 60;
+  const onScroll = () => {
+    if (window.scrollY > threshold) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  // trigger inicial
+  onScroll();
+})();
