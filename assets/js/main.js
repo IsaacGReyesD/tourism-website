@@ -105,4 +105,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })();
 
+    // Navbar: añadir clase 'scrolled' cuando se baja un poco para más contraste
+    (function () {
+        const nav = document.getElementById('mainNav');
+        if (!nav) return;
+        const threshold = 60;
+        const onScroll = () => {
+            if (window.scrollY > threshold) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
+        document.addEventListener('scroll', onScroll, { passive: true });
+        // trigger inicial
+        onScroll();
+    })();
+
 });
