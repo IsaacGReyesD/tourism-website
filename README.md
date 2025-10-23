@@ -6,6 +6,6 @@ View web page https://websiteturismo.netlify.app
 
 ---
 
-Copyright (c) 2025 TuNombreAqui. Todos los derechos reservados.
+Copyright (c) 2025 IsaacGReyesD. Todos los derechos reservados.
 
 License: See LICENSE file for details.
